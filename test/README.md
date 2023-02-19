@@ -16,3 +16,6 @@ Adimo take-home test
 
 - Once working establish how to incorporate user input
 - Use rl or http endpoint with params?
+
+-------------------------------------------------
+- To run the tests, run 'npm test'
