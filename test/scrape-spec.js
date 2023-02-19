@@ -1,21 +1,21 @@
-const { expect } = require('chai')
+const { chai, expect } = require('chai')
 const axiosScraper = require('../scrape')
 const Product = require('../class/product.js')
 
 describe ('Scrape functions', function () {
-
     describe('axios scraper function - valid url', () => {
-        before(function () {
-            const url = 'https://cdn.adimo.co/clients/Adimo/test/index.html'
-            let result = axiosScraper(url)
+        let result
+        beforeEach( async () => {
+            result = await axiosScraper('https://cdn.adimo.co/clients/Adimo/test/index.html')
         })
 
-        it('should return an Array', () => {
-            expect(result).to.be.an('array')
+        it('should return an Array with no errors', () => {
+            expect(result.products).to.be.an('array')
+            expect(result.error).to.be.undefined
         })
 
         it('should return an Array containing only Product instances', () => {
-            expect(result).to.satisfy(function(products) {
+            expect(result.products).to.satisfy(function(products) {
                 return products.every(function(product) {
                     return product instanceof Product
                 })
@@ -23,30 +23,31 @@ describe ('Scrape functions', function () {
         })
 
         it('should return 10 products from the adimo test url', () => {
-            expect(result.length).to.eql(10)
+            expect(result.products.length).to.eql(10)
         })
     })
 
     describe('axios scraper function - no url', () => {
-        before(function () {
-            const url = ''
-            let result = axiosScraper(url)
+        let result
+        beforeEach( async () => {
+            result = await axiosScraper('')
         })
 
-        it('should return an error if no url is provided', () => {
-            expect(result).to.eql('Error!: a url must be provided.')
+        it('should return an error if no url is provided, with no products', () => {
+            expect(result.error).to.eql('Error!: a url must be provided.')
+            expect(result.products).to.be.undefined
         })
 
     })
 
-    describe('axios scraper function - error thrown', () => {
-        before(function () {
-            const url = ''
-            let result = axiosScraper(url)
+    describe('axios scraper function - other error thrown', () => {
+        let result
+        beforeEach( async () => {
+            result = await axiosScraper('https://cd')
         })
-
-        it('should return an error if an error is thrown by axios', () => {
-            expect(result).to.contain('Error!: ')
+        it('should return an error if an error is thrown by axios, with no products', () => {
+            expect(result.error).to.contain('Error!: ')
+            expect(result.products).to.be.undefined
         })
 
     })
