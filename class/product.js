@@ -33,11 +33,9 @@ class Product {
         if (productData.length === 0) {
             return 'Error!: Could not save to file, no product data.'
         }
-
         if (!filePath) {
             return 'Error!: Could not save to file, no filePath provided.'
         }
-
         if (!fileName) {
             return 'Error!: Could not save to file, no fileName provided.'
         }
@@ -45,13 +43,13 @@ class Product {
         let data = JSON.stringify(productData, null, 2)
         let file = filePath + '/' + fileName
 
-    fs.writeFile(file, data, (error) => {
-        if (error) {
-            return ('Error writing file!: ', error.message)
-        } else {
-            return 'JSON data successfully saved to file: ' + file
-        }
-    })
+        fs.writeFile(file, data, (error) => {
+            if (error) {
+                return ('Error writing file!: ', error.message)
+            } else {
+                return 'JSON data successfully saved to file: ' + file
+            }
+        })
 
     }
 }

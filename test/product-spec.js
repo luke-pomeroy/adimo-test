@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect } = require('chai')
 const Product = require('../class/product.js')
 
 describe ('Product class', function () {
