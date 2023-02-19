@@ -26,9 +26,7 @@ describe ('Product class', function () {
         )
         products = [product1, product2, product3]
         averageProductPrice = Product.averageCurrentPrice(products)
-        console.log(products)
     })
-
 
     describe('Product constructor', () => {
         it('should have set the title property', () => {
@@ -75,21 +73,21 @@ describe ('Product class', function () {
 
     describe('saveJsonFile static method', () => {
         // parameters: productData, filePath, fileName
-        it('should return an error if productData contains no products', () => {
+        it('should return an error if productData contains no products', async () => {
             let productData = []
-            expect(Product.saveJsonFile(productData, '../output', 'ExampleFileName.json'))
+            expect(await Product.saveJsonFile(productData, '../output', 'ExampleFileName.json'))
             .to.eql('Error!: Could not save to file, no product data.')
         })
 
-        it('should return an error if a filePath is not provided or is null', () => {
+        it('should return an error if a filePath is not provided or is null', async () => {
             let productData = products
-            expect(Product.saveJsonFile(productData, '', 'ExampleFileName.json'))
+            expect(await Product.saveJsonFile(productData, '', 'ExampleFileName.json'))
             .to.eql('Error!: Could not save to file, no filePath provided.')
         })
 
-        it('should return an error if a fileName is not provided or is null', () => {
+        it('should return an error if a fileName is not provided or is null', async () => {
             let productData = products
-            expect(Product.saveJsonFile(productData, '../output', ''))
+            expect(await Product.saveJsonFile(productData, '../output', ''))
             .to.eql('Error!: Could not save to file, no fileName provided.')
         })
     })

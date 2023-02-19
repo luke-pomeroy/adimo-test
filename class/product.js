@@ -19,7 +19,6 @@ class Product {
             .subtract(this.currentPrice)
             .format({symbol: '£'})
         }
-
     }
 
     static averageCurrentPrice(products) {
@@ -29,7 +28,7 @@ class Product {
         return currency(sum / products.length).format({symbol: '£'})
     }
 
-    static saveJsonFile(productData, filePath, fileName) {
+    static async saveJsonFile(productData, filePath, fileName) {
         if (productData.length === 0) {
             return 'Error!: Could not save to file, no product data.'
         }
@@ -42,15 +41,12 @@ class Product {
 
         let data = JSON.stringify(productData, null, 2)
         let file = filePath + '/' + fileName
-
-        fs.writeFile(file, data, (error) => {
-            if (error) {
-                return ('Error writing file!: ', error.message)
-            } else {
-                return 'JSON data successfully saved to file: ' + file
-            }
-        })
-
+        try {
+            await fs.promises.writeFile(file, data)
+            return 'JSON data successfully saved to file: ' + file
+        } catch {
+            return ('Error writing file!: ', error.message)
+        }
     }
 }
 
