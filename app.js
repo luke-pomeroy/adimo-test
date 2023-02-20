@@ -1,4 +1,4 @@
-const axiosScraper = require('./scrape')
+const axiosScraper = require('./axiosScrape')
 const Product = require('./class/product')
 
 let url = 'https://cdn.adimo.co/clients/Adimo/test/index.html'

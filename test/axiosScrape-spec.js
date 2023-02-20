@@ -1,9 +1,9 @@
 const { chai, expect } = require('chai')
-const axiosScraper = require('../scrape')
+const axiosScraper = require('../axiosScrape')
 const Product = require('../class/product.js')
 
-describe ('Scrape functions', function () {
-    describe('axios scraper function - valid url', () => {
+describe ('axiosScrape function', function () {
+    describe('Valid url for Adimo test site', () => {
         let result
         beforeEach( async () => {
             result = await axiosScraper('https://cdn.adimo.co/clients/Adimo/test/index.html')
@@ -27,7 +27,7 @@ describe ('Scrape functions', function () {
         })
     })
 
-    describe('axios scraper function - no url', () => {
+    describe('No url entered', () => {
         let result
         beforeEach( async () => {
             result = await axiosScraper('')
@@ -40,7 +40,7 @@ describe ('Scrape functions', function () {
 
     })
 
-    describe('axios scraper function - other error thrown', () => {
+    describe('Other error thrown by axios', () => {
         let result
         beforeEach( async () => {
             result = await axiosScraper('https://cd')
