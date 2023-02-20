@@ -40,7 +40,7 @@ const validateSearchTerm = (searchTerm) => {
     }
     rl.close()
     console.log('Fetching results...')
-    let url = `https://www.thewhiskyexchange.com/search?q=${searchTerm}`
+    let url = `https://www.thewhiskyexchange.com/search?q=${encodeURIComponent(searchTerm)}&psize=120`
     return fetchResults(url, puppeteerScraper)
 }
 
