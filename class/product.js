@@ -44,7 +44,7 @@ class Product {
         try {
             await fs.promises.writeFile(file, data)
             return 'JSON data successfully saved to file: ' + file
-        } catch {
+        } catch (error) {
             return ('Error writing file!: ', error.message)
         }
     }
