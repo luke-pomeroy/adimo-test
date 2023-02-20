@@ -20,4 +20,29 @@ Adimo take-home test
 - Use rl or http endpoint with params? TODO
 
 -------------------------------------------------
-- To run the tests, run 'npm test'
+Installation and running application
+- install dependencies: npm install
+
+- run app.js: node app.js
+
+Overview of classes and functions
+Product class:
+ - Class represents a product
+ - setDiscount() assigns a discountAmount property, called from Product constructor
+ - averageCurrentPrice() static method accepts an array of Product instances, returns average current price
+ - saveJsonFile() static async method saves data as JSON to a file
+
+scrape.js:
+ - axiosScraper() async function accepts a url, and returns an array of Product instances, or error
+
+app.js:
+ - Entry point for the application
+ - Calls functions above, and uses Product.saveJsonFile() to save data returned
+
+
+Overview of tests
+- Tests written using mocha and chai for assertions
+product-spec.js - contains tests for class/product.js and methods
+scrape-spec.js - contains tests for scrape.js functions
+
+To run the tests, run 'npm test'
