@@ -17,7 +17,7 @@ const puppeteerScraper = async (url) => {
     if (!url) {
         return { error: 'Error!: a url must be provided.' }
     }
-    
+
     const browser = await puppeteer.launch({ headless: true})
 
     try {
@@ -52,7 +52,7 @@ const puppeteerScraper = async (url) => {
         showMoreVisible = await isShowMoreVisible(page, selectorForShowMoreButton)
         }
 
-        const items = await page.evaluate((Product) => {
+        const items = await page.evaluate(() => {
             const itemList = document.querySelectorAll(".product-grid__item")
             let results = []
 
@@ -70,10 +70,10 @@ const puppeteerScraper = async (url) => {
 
         const products = items.map(item => {
             item = new Product(
-                title = item['title'],
-                imageUrl = item['imageUrl'],
-                currentPrice = item['currentPrice'],
-                previousPrice = ''
+                item['title'],
+                item['imageUrl'],
+                item['currentPrice'],
+                ''
             )
             return item
         })

@@ -1,8 +1,8 @@
-const { chai, expect } = require('chai')
+const { expect } = require('chai')
 const axiosScraper = require('../axiosScrape')
 const Product = require('../class/product.js')
 
-describe ('axiosScrape function', function () {
+describe('axiosScrape function', function () {
     describe('Valid url for Adimo test site', () => {
         let result
         beforeEach( async () => {

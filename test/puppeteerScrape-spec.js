@@ -1,4 +1,4 @@
-const { chai, expect } = require('chai')
+const { expect } = require('chai')
 const puppeteerScraper = require('../puppeteerScrape.js')
 const Product = require('../class/product.js')
 

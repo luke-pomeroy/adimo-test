@@ -17,5 +17,8 @@
     },
     "scripts": {
         "test": "mocha --timeout 20000"
+    },
+    "devDependencies": {
+        "eslint": "^8.34.0"
     }
 }

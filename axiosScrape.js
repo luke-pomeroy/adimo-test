@@ -14,16 +14,16 @@ const axiosScraper = async (url) => {
 
         $('div.item').each(function(i, elem){
             let product = new Product (
-                title = $(elem).find('h1').text(),
-                imageUrl = $(elem).find('img').attr('src'),
-                currentPrice = $(elem).find('span.price').text(),
-                previousPrice = $(elem).find('span.oldPrice').text()
+                $(elem).find('h1').text(),
+                $(elem).find('img').attr('src'),
+                $(elem).find('span.price').text(),
+                $(elem).find('span.oldPrice').text()
             )
             products.push(product)
         })
 
         return { products: products }
-        
+
     } catch (error) {
         return { error: 'Error!: ' + error.message }
     }
