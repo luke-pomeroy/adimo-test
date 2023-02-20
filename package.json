@@ -12,9 +12,10 @@
         "cheerio": "^1.0.0-rc.12",
         "currency.js": "^2.0.4",
         "fs": "^0.0.1-security",
-        "mocha": "^10.2.0"
+        "mocha": "^10.2.0",
+        "puppeteer": "^19.7.2"
     },
     "scripts": {
-        "test": "mocha"
+        "test": "mocha --timeout 20000"
     }
 }
