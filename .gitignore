@@ -1,6 +1,9 @@
 # Node Modules directory
 node_modules/
 
+# Docker app directory
+app/
+
 # dotenv environment variable files
 .env
 .env.development.local
