@@ -4,7 +4,7 @@ The task for this take-home test was to:
 * Use a basic starter node.js axios web scraper to download the HTML from an imaginary cheese store products page [https://cdn.adimo.co/clients/Adimo/test/index.html](https://cdn.adimo.co/clients/Adimo/test/index.html)
 * Then process the HTML and save out a JSON file with:
 
-1. Each product as it's own object containing.
+1. Each product as it's own object containing:
     * title
     * image url
     * price and any discount.
