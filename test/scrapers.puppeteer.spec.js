@@ -22,8 +22,8 @@ describe ('puppeteerScraper function', function () {
             })
         })
 
-        it('should return 145 products from the whisky url (as of 2022-02-20)', () => {
-            expect(result.products.length).to.eql(145)
+        it('should return 144 products from the whisky url (as of 2022-02-21)', () => {
+            expect(result.products.length).to.eql(144)
         })
     })
 
