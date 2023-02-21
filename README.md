@@ -21,27 +21,27 @@ The task also included 2 challenges:
 * Products are represented by a Product class, with an instance method to calculate any discount.
 * The Product class also includes static methods for returning an average current price, and saving a JSON file.
 * The scrapers directory contains two files with scraper functions for axios and puppeteer.
-* The app.js file uses readline to prompt input from the user, and call the selected function.
-* JSON files are exported to an output directory with an ISO datetime as the filename.
+* The app.js file uses readline to prompt input from the user, and call the relevant scraper function.
+* Any errors produced are logged to the console.
 
 ### Handling of currency values
 * Considered using regular expression to extract the currency value and convert to an integer
 * Ultimately I used the currency.js library to streamline currency calculations
 
 ### Format of JSON output
-* The JSON within these files includes an array of products alongside the URL used, ISO datetime, total number of products, and the average price of all products.
-* Any errors produced are logged to the console.
+* JSON files are exported to an output directory with an ISO datetime as the filename.
+* The JSON includes an array of all products, the URL, date retrieved, total number of products, and the average price of all products.
 
 ### Design considerations
 * A 403 Forbidden response was returned when using Axios with the Whisky Exchange site; setting User-Agent headers, using a proxy and connecting to the Host IP returned the same result.
 * While puppeeer does work for the Whisky Exhchange site, it's very slow in comparison to Axios.
 * Other HTTP libraries designed to work around Cloudflare protection could be explored, such as [Cloudscraper](https://github.com/VeNoMouS/cloudscraper). The products could then be extracted using the pagination URL parameter for each page in turn.
 
-* In production I would implement this as a HTTP REST API using Express.js, with user input entered via URL parameters.
-* URL parameters for the DOM selectors and variable names could be passed as query parameters, to make the app more dynamic and usable for different websites.
+* In production I would implement this as a HTTP REST API using Express.js, with input recieved via URL parameters.
+* URL parameters for the DOM selectors and variable names could also be used, to make the app more dynamic and usable for different websites.
 
-### Deployment
-* A Dockerfile could be used to deploy this to a production server as a Docker container image (an example is included).
+### Production deployment
+* A Dockerfile could be used to deploy this to a production server as a Docker container image (an example is included), so that the app and any dependencies are easier to maintain / faster to deploy.
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ The task also included 2 challenges:
 [File System](https://nodejs.org/api/fs.html) - file system module
 [Currency.js](https://currency.js.org/) - library for working with currency values
 
-### Installing
+### Installation
 
 * Install npm dependencies:
 ```
