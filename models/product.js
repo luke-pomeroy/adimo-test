@@ -42,13 +42,13 @@ class Product {
         let data = JSON.stringify(productData, null, 2)
         let file = filePath + '/' + fileName
         try {
-            await fs.promises.mkdir(filePath)
+            await fs.promises.mkdir(filePath, { recursive: true })
             await fs.promises.writeFile(file, data)
             return 'JSON data successfully saved to file: ' + file
         } catch (error) {
             return ('Error writing file!: ', error.message)
         }
     }
-}
+}   
 
 module.exports = Product

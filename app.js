@@ -48,7 +48,7 @@ const fetchResults = async (url, cb) => {
     const result = await cb(url)
 
     if (result.error) {
-        console.log(result.error)
+        console.error(result.error)
         return
     }
 
