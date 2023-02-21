@@ -45,6 +45,7 @@ describe ('puppeteerScraper function', function () {
         before( async () => {
             result = await puppeteerScraper('https://cd')
         })
+        
         it('should return an error if an error is thrown by puppeteer, with no products', () => {
             expect(result.error).to.contain('Error!: ')
             expect(result.products).to.be.undefined

@@ -45,6 +45,7 @@ describe('axiosScrape function', function () {
         beforeEach( async () => {
             result = await axiosScraper('https://cd')
         })
+        
         it('should return an error if an error is thrown by axios, with no products', () => {
             expect(result.error).to.contain('Error!: ')
             expect(result.products).to.be.undefined
