@@ -1,7 +1,7 @@
 const readline = require('node:readline')
-const axiosScraper = require('./axiosScrape')
-const puppeteerScraper = require('./puppeteerScrape')
-const Product = require('./class/product')
+const axiosScraper = require('./scrapers/axios')
+const puppeteerScraper = require('./scrapers/puppeteer')
+const Product = require('./models/product')
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -71,4 +71,5 @@ const fetchResults = async (url, cb) => {
         return
     }
 }
+
 selectOption()

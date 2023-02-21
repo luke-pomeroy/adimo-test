@@ -42,6 +42,7 @@ class Product {
         let data = JSON.stringify(productData, null, 2)
         let file = filePath + '/' + fileName
         try {
+            await fs.promises.mkdir(filePath)
             await fs.promises.writeFile(file, data)
             return 'JSON data successfully saved to file: ' + file
         } catch (error) {

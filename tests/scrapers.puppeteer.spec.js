@@ -1,12 +1,12 @@
 const { expect } = require('chai')
-const axiosScraper = require('../axiosScrape')
-const Product = require('../class/product.js')
+const puppeteerScraper = require('../scrapers/puppeteer.js')
+const Product = require('../models/product.js')
 
-describe('axiosScrape function', function () {
-    describe('Valid url for Adimo test site', () => {
+describe ('puppeteerScraper function', function () {
+    describe('Valid url for whiskyexchange website', () => {
         let result
-        beforeEach( async () => {
-            result = await axiosScraper('https://cdn.adimo.co/clients/Adimo/test/index.html')
+        before( async () => {
+            result = await puppeteerScraper('https://www.thewhiskyexchange.com/search?q=cider')
         })
 
         it('should return an Array with no errors', () => {
@@ -22,15 +22,15 @@ describe('axiosScrape function', function () {
             })
         })
 
-        it('should return 10 products from the adimo test url', () => {
-            expect(result.products.length).to.eql(10)
+        it('should return 145 products from the whisky url (as of 2022-02-20)', () => {
+            expect(result.products.length).to.eql(145)
         })
     })
 
     describe('No url entered', () => {
         let result
-        beforeEach( async () => {
-            result = await axiosScraper('')
+        before( async () => {
+            result = await puppeteerScraper('')
         })
 
         it('should return an error if no url is provided, with no products', () => {
@@ -40,12 +40,12 @@ describe('axiosScrape function', function () {
 
     })
 
-    describe('Other error thrown by axios', () => {
+    describe('Other error thrown by puppeteer', () => {
         let result
-        beforeEach( async () => {
-            result = await axiosScraper('https://cd')
+        before( async () => {
+            result = await puppeteerScraper('https://cd')
         })
-        it('should return an error if an error is thrown by axios, with no products', () => {
+        it('should return an error if an error is thrown by puppeteer, with no products', () => {
             expect(result.error).to.contain('Error!: ')
             expect(result.products).to.be.undefined
         })

@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const Product = require('../class/product.js')
+const Product = require('../models/product.js')
 
 describe ('Product class', function () {
     let product1, product2, product3, products, averageProductPrice

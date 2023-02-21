@@ -1,6 +1,6 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
-const Product = require('./class/product')
+const Product = require('../models/product')
 
 const axiosScraper = async (url) => {
     if (!url) {

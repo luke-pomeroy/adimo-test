@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const Product = require('./class/product')
+const Product = require('../models/product')
 
 const isShowMoreVisible = async (page, cssSelector) => {
     let visible = true

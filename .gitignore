@@ -1,6 +1,9 @@
 # Node Modules directory
 node_modules/
 
+# Output directory
+output/
+
 # Docker app directory
 app/
 
