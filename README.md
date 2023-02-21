@@ -34,10 +34,10 @@ The task also included 2 challenges:
 
 ### Design considerations
 * A 403 Forbidden response was returned when using Axios with the Whisky Exchange site; setting User-Agent headers, using a proxy and connecting to the Host IP returned the same result.
-* While puppeeer does work for the Whisky Exhchange site, it's very slow in comparison to Axios.
+* While Puppeteer does work for the Whisky Exchange site, it's very slow in comparison to Axios.
 * Other HTTP libraries designed to work around Cloudflare protection could be explored, such as [Cloudscraper](https://github.com/VeNoMouS/cloudscraper). The products could then be extracted using the pagination URL parameter for each page in turn.
 
-* In production I would implement this as a HTTP REST API using Express.js, with input recieved via URL parameters.
+* In production I would implement this as a HTTP REST API using Express.js, with input received via URL parameters.
 * URL parameters for the DOM selectors and variable names could also be used, to make the app more dynamic and usable for different websites.
 
 ### Production deployment
