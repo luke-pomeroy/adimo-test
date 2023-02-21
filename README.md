@@ -21,7 +21,7 @@ The task also included 2 challenges:
 * Products are represented by a Product class, with an instance method to calculate any discount.
 * The Product class also includes static methods for returning an average current price, and saving a JSON file.
 * The scrapers directory contains two files with scraper functions for axios and puppeteer.
-* The app.js file uses readline to prompt input from the user, and call the relevant scraper function.
+* The app.js file uses Readline to prompt input from the user, and call the relevant scraper function.
 * Any errors produced are logged to the console.
 
 ### Handling of currency values
@@ -33,9 +33,9 @@ The task also included 2 challenges:
 * The JSON includes an array of all products, the URL, date retrieved, total number of products, and the average price of all products.
 
 ### Design considerations
-* A 403 Forbidden response was returned when using Axios with the Whisky Exchange site; setting User-Agent headers, using a proxy and connecting to the Host IP returned the same result.
+* A 403 Forbidden response was returned when using Axios with the Whisky Exchange site; setting User-Agent headers, using a proxy and connecting to the Host IP directly returned the same result.
 * While Puppeteer does work for the Whisky Exchange site, it's very slow in comparison to Axios.
-* Other HTTP libraries designed to work around Cloudflare protection could be explored, such as [Cloudscraper](https://github.com/VeNoMouS/cloudscraper). The products could then be extracted using the pagination URL parameter for each page in turn.
+* Other HTTP libraries designed to work around Cloudflare protection could be explored, such as [Cloudscraper](https://github.com/VeNoMouS/cloudscraper). The products could then be extracted via a request for each page in turn, using the pagination URL parameter.
 
 * In production I would implement this as a HTTP REST API using Express.js, with input received via URL parameters.
 * URL parameters for the DOM selectors and variable names could also be used, to make the app more dynamic and usable for different websites.
