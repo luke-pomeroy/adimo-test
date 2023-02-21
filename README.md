@@ -46,13 +46,13 @@ The task also included 2 challenges:
 ## Getting Started
 
 ### Dependencies
-[Mocha](https://mochajs.org/) - testing framework
-[Chai](https://www.chaijs.com/) - assertion library for tests
-[Axios](https://axios-http.com/docs/intro) - HTTP client
-[Cheerio](https://cheerio.js.org/) - HTML parsing library for Axios responses
-[Puppeteer](https://pptr.dev/) - headless browser
-[File System](https://nodejs.org/api/fs.html) - file system module
-[Currency.js](https://currency.js.org/) - library for working with currency values
+* [Mocha](https://mochajs.org/) - testing framework
+* [Chai](https://www.chaijs.com/) - assertion library for tests
+* [Axios](https://axios-http.com/docs/intro) - HTTP client
+* [Cheerio](https://cheerio.js.org/) - HTML parsing library for Axios responses
+* [Puppeteer](https://pptr.dev/) - headless browser
+* [File System](https://nodejs.org/api/fs.html) - file system module
+* [Currency.js](https://currency.js.org/) - library for working with currency values
 
 ### Installation
 
